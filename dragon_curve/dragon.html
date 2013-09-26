@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dragon Curve</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="dragon_curve.js" /></script>
+  </head>
+  <body>
+    <h1>Dragon Curve</h1>
+    <p>This page draws dragon curves. That should be fairly obvious based on
+    the header. You can define the number of iterations for the curve below.
+    Also, you can save the curve as an image if you want to. Just right click
+    and save it like you would any other image.</p>
+    <p><strong>Note:</strong> The more iterations you do, the longer the
+    dragon curve will take to generate. For example, just 11 iterations takes
+    several second to generate. You <em>really</em> don't want to go more than
+    12 iterations, by the way, or you'll be here <em>a while</em>.</p>
+    <p>
+      <form name="iterations_form" method="get" action="#" onsubmit="window.location.reload();">
+	<label for="iterations">Iterations</label>
+	<input type="text" id="iterations" />
+	<input type="submit" value="Draw" />
+      </form>
+    </p>
+    <canvas id="myCanvas" width="1100" height="800" /></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var iter_form = document.forms.iterations_form;
+      var iters = 0;
+      var unit_len = 5;
+      if (iter_form.elements.iterations.value) {
+	iters = parseInt(iter_form.elements.iterations.value)
+      }
+      console.log("iters: " + iters);
+      var dc = new DragonCurve(iters);
+
+      dragon_curve_draw(dc.str, context, 800, 300, unit_len);
+    </script>
+  </body>
+</html>
