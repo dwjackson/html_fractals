@@ -1,0 +1,107 @@
+<!-- 
+
+Copyright (c) 2013, David Jackson
+All rights reserved.
+
+Redistribution and use in source and binary form, with or without
+modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided in the distribution.
+    * Neither the name of David Jackson nor the names of other contributers
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL DAVID JACKSON BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Barnsley Fern</title>
+    <style>
+      h1 {
+	font-family: "Helvetica", Helvetica, Sans;
+      }
+      #myCanvas {
+	border: 1px solid black;
+      }
+      footer {
+	text-align: center;
+      }
+    </style>
+    <script>
+      var f1 = function(pos) {
+	var tmp = {'x': pos['x'], 'y': pos['y']};
+	pos['x'] = 0;
+	pos['y'] = 0.16 * pos['y'];
+      }
+      var f2 = function(pos) {
+	var tmp = {'x': pos['x'], 'y': pos['y']};
+	pos['x'] = 0.85 * tmp['x'] + 0.04 * tmp['y'];
+	pos['y'] = -0.04 * tmp['x'] + 0.85 * tmp['y'] + 1.6;
+      }
+      var f3 = function(pos) {
+	var tmp = {'x': pos['x'], 'y': pos['y']};
+	pos['x'] = 0.2 * tmp['x'] - 0.26 * tmp['y'];
+	pos['y'] = 0.23 * tmp['x'] + 0.22 * tmp['y'] + 1.6;
+      }
+      var f4 = function(pos) {
+	var tmp = {'x': pos['x'], 'y': pos['y']};
+	pos['x'] = -0.15 * tmp['x'] + 0.28 * tmp['y'];
+	pos['y'] = 0.26 * tmp['x'] + 0.24 * tmp['y'] + 0.44;
+      }
+      function draw_fern(start_x, start_y, iters, context) {
+	var pos = {'x': 0.0, 'y': 0.0};
+	var r;
+        var func;	
+	var ulen = 50;
+	context.beginPath();
+	context.moveTo(start_x, start_y);
+	context.fillStyle = "#003D00";
+	for (var i = 0; i < iters; i++) {
+	  context.fillRect(pos['x'] * ulen + start_x, pos['y'] * ulen + start_y, 1, 1);
+	  r = Math.floor(Math.random() * 100);
+	  if (r == 0) {
+	    func = f1;
+	  } else if (r > 0 && r < 86) {
+	    func = f2;
+	  } else if (r > 85 && r < 93) {
+	    func = f3;
+	  } else {
+	    func = f4;
+	  }
+	  func(pos);
+	}
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Barnsley Fern</h1>
+    <p>This page constructs Barnsley Ferns in the canvas below.</p>
+    <canvas id="myCanvas" width="800" height="800"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+      draw_fern(400, 0, 100000, context);
+    </script>
+
+    <footer>
+      <p><small>Copyright &copy; 2013 David Jackson</small></p>
+    </footer>
+  </body>
+</html>
+
