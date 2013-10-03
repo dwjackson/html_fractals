@@ -1,3 +1,7 @@
 h1 {
   font-family: 'Helvetica', Helvetica, Sans;
 }
+
+canvas {
+  border: 1px solid black;
+}
