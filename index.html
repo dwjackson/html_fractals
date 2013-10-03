@@ -15,5 +15,20 @@
 	<li><a href="/plant">Fractal Plant</a></li>
       </ul>
     </nav>
+
+    <div id='lsys'>
+      <h2>L-Systems</h2>
+      <form>
+	<label for="alphabet">Alphabet</label><br/>
+	<input name="alphabet" type="text" /><br/>
+	<label for="axiom">Axiom</label><br/>
+	<input name="axiom" type="text" /><br/>
+	<label for="rules">Rules</label><br/>
+	<input name="rules" type="text" /><br/>
+	<input type="submit" value="Create" />
+      </form>
+
+      <canvas id="lsys_canvas" height="800" width="800"></canvas>
+    </div>
   </body>
 </html>
