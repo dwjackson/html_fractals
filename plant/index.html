@@ -38,7 +38,7 @@
       }
       function draw_plant(start_x, start_y, str, context) {
 	var pos = {'x': start_x, 'y': start_y};
-	var vec = {'x': 1.0, 'y': 0.0};
+	var vec = {'x': 0.5, 'y': -0.5};
 	var stack = [];
 	var u = 10; // Unit length in pixels
 
@@ -100,7 +100,7 @@
       var div = document.getElementById('plantstr');
       //div.innerHTML = '<p>' + plant.str + '</p>';
 
-      draw_plant(0, 400, plant.str, context);
+      draw_plant(10, 790, plant.str, context);
     </script>
   </body>
 </html>
