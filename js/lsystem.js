@@ -32,6 +32,12 @@ function LSystem(alphabet, axiom, rules) {
 //
 // This object is used to draw L-Systems from a string and uses common rules
 // that are semi-configurable.
+//
+// Control Symbols:
+//   - Turn left
+//   + Turn right
+//   [ store position and vector
+//   ] restore position and vector
 function LSystemArtist(str, angle, draw_chars, ulen) {
   this.str = str; // The L-System string
   this.angle = angle; // The angle that the L-System uses
