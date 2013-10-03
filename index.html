@@ -18,7 +18,9 @@
 
     <div id='lsys'>
       <h2>L-Systems</h2>
-      <form>
+
+      <h3>L-System Definition</h3>
+      <form name="lsys_form">
 	<label for="alphabet">Alphabet</label><br/>
 	<input name="alphabet" type="text" /><br/>
 	<label for="axiom">Axiom</label><br/>
@@ -26,6 +28,15 @@
 	<label for="rules">Rules</label><br/>
 	<input name="rules" type="text" /><br/>
 	<input type="submit" value="Create" />
+      </form>
+
+      <h3>L-Sytem Drawing Specifications</h3>
+      <form name="lsys_draw_form">
+	<label for="angle">Angle</label><br/>
+	<input type="text" name="angle" /><br/>
+	<label for="lsys_colour">Colour</label><br/>
+	<input type="text" name="lsys_colour" /><br/>
+	<input type="submit" value="Set" />
       </form>
 
       <canvas id="lsys_canvas" height="800" width="800"></canvas>
