@@ -13,6 +13,7 @@ var app = express();
 
 // Models
 var LSystem = require('./models/lsystem');
+var RuleParser = require('./models/rule_parser');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -34,7 +35,9 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 app.post('/new_lsystem', function(req, res) {
-  var lsys = new LSystem(req.body.alphabet, req.body.axiom, req.body.rules);
+  var rp = new RuleParser(req.body.rules);
+  var rules = rp.parse();
+  var lsys = new LSystem(req.body.alphabet, req.body.axiom, rules);
   lsys.generate(req.body.iterations);
   res.render('lsys', {lsys_str: lsys.str, title: 'L-System Drawing'});
 });
