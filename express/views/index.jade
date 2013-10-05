@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 L-Systems
+
+  form(name="lsys_form")
+    label(for="alphabet") Alphabet
+    br
+    input(type="text", name="alphabet")
+    br
+    label(for="axiom") Axiom
+    br
+    input(type="text", name="axiom")
+    br
+    label(for="axiom") Rules 
+    br
+    textarea(name="rules")
+    br
+    input(type="submit", value="Create")
+
+  canvas(id="lsys_canvas", height="800", width="800") 
