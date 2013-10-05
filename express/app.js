@@ -36,7 +36,7 @@ app.get('/users', user.list);
 app.post('/new_lsystem', function(req, res) {
   var lsys = new LSystem(req.body.alphabet, req.body.axiom, req.body.rules);
   lsys.generate(req.body.iterations);
-  res.render('lsys');
+  res.render('lsys', {lsys_str: lsys.str, title: 'L-System Drawing'});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
