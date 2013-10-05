@@ -37,8 +37,10 @@ app.get('/users', user.list);
 app.post('/new_lsystem', function(req, res) {
   var rp = new RuleParser(req.body.rules);
   var alphabet = req.body.alphabet.split(', ');
+  var angle = parseFloat(req.body.angle);
   var rules = rp.parse();
   var lsys = new LSystem(alphabet, req.body.axiom, rules);
+  lsys.set_angle(angle);
   console.log('[DEBUG] alphabet = ' + JSON.stringify(alphabet));
   console.log('[DEBUG] axiom = ' + req.body.axiom);
   console.log('[DEBUG] lsys = ' + JSON.stringify(lsys));

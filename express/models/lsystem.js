@@ -9,6 +9,7 @@ function LSystem(alphabet, axiom, rules) {
   this.axiom = axiom;
   this.rules = rules;
   this.str = axiom;
+  this.angle = 0.0;
 
   // Generate the system for "iters" iterations
   this.generate = function(iters) {
@@ -26,6 +27,11 @@ function LSystem(alphabet, axiom, rules) {
       str = new_str;
     }
     this.str = str;
+  }
+
+  // Set the angle for the system
+  this.set_angle(angle) {
+    this.angle = angle;
   }
 }
 
