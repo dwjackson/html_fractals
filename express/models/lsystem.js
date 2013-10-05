@@ -15,11 +15,12 @@ function LSystem(alphabet, axiom, rules) {
     var str = this.axiom;
     var new_str;
     var c;
+    var iterations = parseInt(iters);
 
-    for (var i = 0; i < iters; i++) {
+    for (var i = 0; i < iterations; i++) {
       new_str = "";
       for (var j = 0; j < str.length; j++) {
-	c = str[i];
+	c = str[j];
 	new_str += this.rules[c];
       }
       str = new_str;

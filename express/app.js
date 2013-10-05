@@ -36,9 +36,14 @@ app.get('/users', user.list);
 
 app.post('/new_lsystem', function(req, res) {
   var rp = new RuleParser(req.body.rules);
+  var alphabet = req.body.alphabet.split(', ');
   var rules = rp.parse();
-  var lsys = new LSystem(req.body.alphabet, req.body.axiom, rules);
+  var lsys = new LSystem(alphabet, req.body.axiom, rules);
+  console.log('[DEBUG] alphabet = ' + JSON.stringify(alphabet));
+  console.log('[DEBUG] axiom = ' + req.body.axiom);
+  console.log('[DEBUG] lsys = ' + JSON.stringify(lsys));
   lsys.generate(req.body.iterations);
+  console.log('[DEBUG] lsys = ' + JSON.stringify(lsys));
   res.render('lsys', {lsys_str: lsys.str, title: 'L-System Drawing'});
 });
 
