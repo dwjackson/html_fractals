@@ -3,9 +3,14 @@ extends layout
 block content
   h1 L-System Drawing
 
+  div(id="testing")
+
   canvas(id="lsys_canvas", name="lsys_canvas", height="800", width="800")
 
   script.
     var canvas = document.getElementById('lsys_canvas')
     var context = canvas.getContext('2d')
+    var lsys = !{JSON.stringify(lsys)};
+    var div = document.getElementById('testing');
+    div.innerHTML = '<p>' + JSON.stringify(lsys) + '</p>'
     lsys_draw(400, 400, context, lsys)

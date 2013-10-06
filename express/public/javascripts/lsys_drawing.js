@@ -27,12 +27,12 @@ function lsys_draw(start_x, start_y, context, lsys) {
 	// Turn right
 	var tmp = {'x': vec['x'], 'y': vec['y']};
 	vec['x'] = R_right[0][0] * tmp['x'] + R_right[0][1] * tmp['y'];
-	vec['x'] = R_right[1][0] * tmp['x'] + R_right[1][1] * tmp['y'];
+	vec['y'] = R_right[1][0] * tmp['x'] + R_right[1][1] * tmp['y'];
       } else if (c == '-') {
 	// Turn left
 	var tmp = {'x': vec['x'], 'y': vec['y']};
 	vec['x'] = R_left[0][0] * tmp['x'] + R_left[0][1] * tmp['y'];
-	vec['x'] = R_left[1][0] * tmp['x'] + R_left[1][1] * tmp['y'];
+	vec['y'] = R_left[1][0] * tmp['x'] + R_left[1][1] * tmp['y'];
       } else if (c == '[') {
 	// Store position and vector
 	var tmp_pos = {'x': pos['x'], 'y': pos['y']};
