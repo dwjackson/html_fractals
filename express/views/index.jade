@@ -3,50 +3,51 @@ extends layout
 block content
   h1 L-Systems
 
-  form(name="lsys_form", method="post", action="/new_lsystem")
-    label(for="alphabet") Alphabet
-    br
-    input(type="text", name="alphabet")
-    br
-    label(for="axiom") Axiom
-    br
-    input(type="text", name="axiom")
-    br
-    label(for="axiom") Rules 
-    br
-    textarea(name="rules")
-    br
-    label(for="angle") Angle
-    br
-    input(type="text", name="angle")
-    br
-    label(for="draw_chars") Drawing Characters (letters that correspond to draw)
-    br
-    input(type="text", name="draw_chars")
-    br
-    label(for="iterations") Iterations
-    br
-    input(type="text", name="iterations")
-    br
-    input(type="submit", value="Create")
+  #lsys_form_box
+    form(name="lsys_form", method="post", action="/new_lsystem")
+      label(for="alphabet") Alphabet
+      br
+      input(type="text", name="alphabet")
+      br
+      label(for="axiom") Axiom
+      br
+      input(type="text", name="axiom")
+      br
+      label(for="axiom") Rules 
+      br
+      textarea(name="rules")
+      br
+      label(for="angle") Angle
+      br
+      input(type="text", name="angle")
+      br
+      label(for="draw_chars") Drawing Characters (letters that correspond to draw)
+      br
+      input(type="text", name="draw_chars")
+      br
+      label(for="iterations") Iterations
+      br
+      input(type="text", name="iterations")
+      br
+      input(type="submit", value="Create")
 
-  h2 Control Symbols
-  table
-    tr
-      td
-        strong Control Symbol
-      td
-        strong Meaning
-    tr
-      td +
-      td Turn right
-    tr
-      td -
-      td Turn left
-    tr
-      td [
-      td Save position and angle
-    tr
-      td ]
-      td Save position and angle
-
+  #control_symbols
+    h2 Control Symbols
+    table
+      tr
+        td
+          strong Control Symbol
+        td
+          strong Meaning
+      tr
+        td +
+        td Turn right
+      tr
+        td -
+        td Turn left
+      tr
+        td [
+        td Save position and angle
+      tr
+        td ]
+        td Save position and angle
