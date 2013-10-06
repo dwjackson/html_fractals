@@ -20,7 +20,8 @@ function RuleParser(str) {
       if (c == '(') {
 	env = 1;
 	rule_str = "";
-      } else if (c.search(/[A-Z]/) == 0 && env == 1) {
+      } else if ((c.search(/[A-Z]/) == 0 || c.search(/[\+\-\[\]]/) == 0)
+                 && env == 1) {
 	variable = c;
       } else if (c == '>' && d == '-') {
 	env = 2;
