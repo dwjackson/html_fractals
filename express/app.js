@@ -39,8 +39,9 @@ app.post('/new_lsystem', function(req, res) {
   var alphabet = req.body.alphabet.split(', ');
   var angle = parseFloat(req.body.angle);
   var rules = rp.parse();
+  var draw_chars = req.body.draw_chars.split(', ');
 
-  var ls = new LSystem(alphabet, req.body.axiom, rules, req.body.draw_chars);
+  var ls = new LSystem(alphabet, req.body.axiom, rules, draw_chars);
   ls.set_angle(angle);
   ls.generate(req.body.iterations);
   console.log('[DEBUG] ls = ' + JSON.stringify(ls));
