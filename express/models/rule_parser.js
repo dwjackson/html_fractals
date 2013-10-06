@@ -24,7 +24,8 @@ function RuleParser(str) {
 	variable = c;
       } else if (c == '>' && d == '-') {
 	env = 2;
-      } else if (c.search(/[A-Z]/) == 0 || c.search(/\+-\[\]/) == 0) {
+      } else if ((c.search(/[A-Z]/) == 0 || c.search(/[\+-\[\]]/) == 0)
+                 && env == 2) {
 	rule_str += c;
       } else if (c == ')') {
 	this.rules[variable] = rule_str;
