@@ -4,10 +4,11 @@
 //   alphabet is a list of variables (characters)
 //   axiom is the inital string for the system
 //   rules is an object containing production rules - e.g. {'X': 'Y'}
-function LSystem(alphabet, axiom, rules) {
+function LSystem(alphabet, axiom, rules, draw_chars) {
   this.alphabet = alphabet;
   this.axiom = axiom;
   this.rules = rules;
+  this.draw_chars = draw_chars;
   this.str = axiom;
   this.angle = 0.0;
 
