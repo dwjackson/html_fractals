@@ -31,7 +31,7 @@ function LSystem(alphabet, axiom, rules, draw_chars) {
   }
 
   // Set the angle for the system
-  this.set_angle(angle) {
+  this.set_angle = function(angle) {
     this.angle = angle;
   }
 }
