@@ -3,11 +3,9 @@ extends layout
 block content
   h1 L-System Drawing
 
-  p= lsys_str
-
   canvas(id="lsys_canvas", name="lsys_canvas", height="800", width="800")
 
   script
     var canvas = document.getElementById('lsys_canvas')
     var context = canvas.getContext('2d')
-    lsys_draw(400, 400, context, lsys_str)
+    lsys_draw(400, 400, context, lsys)

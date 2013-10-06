@@ -40,12 +40,12 @@ app.post('/new_lsystem', function(req, res) {
   var angle = parseFloat(req.body.angle);
   var rules = rp.parse();
 
-  var lsys = new LSystem(alphabet, req.body.axiom, rules, req.body.draw_chars);
-  lsys.set_angle(angle);
-  lsys.generate(req.body.iterations);
-  console.log('[DEBUG] lsys = ' + JSON.stringify(lsys));
+  var ls = new LSystem(alphabet, req.body.axiom, rules, req.body.draw_chars);
+  ls.set_angle(angle);
+  ls.generate(req.body.iterations);
+  console.log('[DEBUG] ls = ' + JSON.stringify(ls));
 
-  res.render('lsys', {lsys_str: lsys.str, title: 'L-System Drawing'});
+  res.render('lsys', {lsys: ls, title: 'L-System Drawing'});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
