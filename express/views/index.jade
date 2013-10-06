@@ -5,31 +5,38 @@ block content
 
   #lsys_form_box
     form(name="lsys_form", method="post", action="/new_lsystem")
-      label(for="alphabet") Alphabet
-      br
-      input(type="text", name="alphabet")
-      br
-      label(for="axiom") Axiom
-      br
-      input(type="text", name="axiom")
-      br
-      label(for="axiom") Rules 
-      br
-      textarea(name="rules")
-      br
-      label(for="angle") Angle
-      br
-      input(type="text", name="angle")
-      br
-      label(for="draw_chars") Drawing Characters (letters that correspond to draw)
-      br
-      input(type="text", name="draw_chars")
-      br
-      label(for="iterations") Iterations
-      br
-      input(type="text", name="iterations")
-      br
-      input(type="submit", value="Create")
+      .field
+        label(for="alphabet") Alphabet
+        br
+        input(type="text", name="alphabet")
+        br
+      .field
+        label(for="axiom") Axiom
+        br
+        input(type="text", name="axiom")
+        br
+      .field
+        label(for="axiom") Rules 
+        br
+        textarea(name="rules")
+        br
+      .field
+        label(for="angle") Angle
+        br
+        input(type="text", name="angle")
+        br
+      .field
+        label(for="draw_chars") Drawing Characters (letters that correspond to draw)
+        br
+        input(type="text", name="draw_chars")
+        br
+      .field
+        label(for="iterations") Iterations
+        br
+        input(type="text", name="iterations")
+        br
+      .field
+        input(type="submit", value="Create")
 
   #control_symbols
     h2 Control Symbols
