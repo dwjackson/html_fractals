@@ -2,12 +2,14 @@ HTML Fractals
 =============
 
 This is just a hobby project for drawing fractals using the HTML5 canvas
-element. Each individual page should be fairly self-explanatory.
+element. At the moment, most of the fractals are drawn by describing them
+using L-Systems. There are some pre-defined L-Systems built into the system.
+Other fractals are in their own folders.
 
-Fractal Types
--------------
+Pre-Defined L-Sytems
+--------------------
 
-The fractal types that this collection currently has in it are:
+The L-Systems that this collection currently has in it are:
 
 - Barnsley Fern
 - Dragon Curve
