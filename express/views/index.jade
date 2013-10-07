@@ -46,7 +46,7 @@ block content
         input(type="text", name="iterations")
         br
       .field
-        input(type="submit", value="Create")
+        input.btn(type="submit", value="Create")
 
   #control_symbols
     h2 Control Symbols
@@ -73,8 +73,8 @@ block content
     h2 Common L-Systems
     ul
       li
-        a(onclick="lsys_form_fill('X, Y', 'X', '(X -> X+YF), (Y -> FX-Y), (+ -> +), (- -> -), (F -> F)', Math.PI / 2.0, 'F');", href="javascript:void(0)") Dragon Curve
+        a.btn(onclick="lsys_form_fill('X, Y', 'X', '(X -> X+YF), (Y -> FX-Y), (+ -> +), (- -> -), (F -> F)', Math.PI / 2.0, 'F');", href="javascript:void(0)") Dragon Curve
       li
-        a(onclick="lsys_form_fill('X, F', 'X', '(X -> F-[[X]+X]+F[+FX]-X), (F -> FF), (+ -> +), (- -> -), ([ -> [), (] -> ])', Math.PI / 7.2, 'F');", href="javascript:void(0)") Grass-like Plant
+        a.btn(onclick="lsys_form_fill('X, F', 'X', '(X -> F-[[X]+X]+F[+FX]-X), (F -> FF), (+ -> +), (- -> -), ([ -> [), (] -> ])', Math.PI / 7.2, 'F');", href="javascript:void(0)") Grass-like Plant
       li
-        a(onclick="lsys_form_fill('A, B', 'A', '(A -> B-A-B), (B -> A+B+A), (+ -> +), (- -> -)', Math.PI / 3.0, 'A, B');", href="javascript:void(0)") Sierpinsky Triangle
+        a.btn(onclick="lsys_form_fill('A, B', 'A', '(A -> B-A-B), (B -> A+B+A), (+ -> +), (- -> -)', Math.PI / 3.0, 'A, B');", href="javascript:void(0)") Sierpinsky Triangle
