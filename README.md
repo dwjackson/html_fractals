@@ -30,3 +30,4 @@ The L-Systems that this collection currently has in it are:
 - Sierpinsky Triangle
 - Plant (it looks a bit like a grass-y weed)
 - Koch Curve
+- Hilbert Curve
