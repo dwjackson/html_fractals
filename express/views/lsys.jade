@@ -6,6 +6,20 @@ block content
   p
     a(href="/") Back
 
+  #lsys_regen
+    form(name="lsys_regen_form")
+      .field
+        label(for="start_x") Start X
+        input(name="start_x", type="text")
+      .field
+        label(for="start_y") Start Y
+        input(name="start_y", type="text")
+      .field
+        label(for="iterations") Iterations
+        input(name="iterations", type="text")
+      .field
+        input.btn(type="submit", value="Regenerate")
+
   canvas(id="lsys_canvas", name="lsys_canvas", height="800", width="800")
 
   script.
