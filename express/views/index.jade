@@ -1,6 +1,16 @@
 extends layout
 
 block content
+  script.
+    function lsys_form_fill(alphabet, axiom, rules, angle, draw_chars) {
+      var form = document.lsys_form
+      form.alphabet.value = alphabet
+      form.axiom.value = axiom
+      form.rules.value = rules
+      form.angle.value = angle
+      form.draw_chars.value = draw_chars
+    }
+
   h1 L-Systems
 
   #lsys_form_box
@@ -21,7 +31,7 @@ block content
         textarea(name="rules")
         br
       .field
-        label(for="angle") Angle
+        label(for="angle") Angle (in radians)
         br
         input(type="text", name="angle")
         br
@@ -58,3 +68,13 @@ block content
       tr
         td ]
         td Save position and angle
+
+  #common_lsystems
+    h2 Common L-Systems
+    ul
+      li
+        a(onclick="lsys_form_fill('X, Y', 'X', '(X -> X+YF), (Y -> FX-Y), (+ -> +), (- -> -), (F -> F)', Math.PI / 2.0, 'F');", href="javascript:void(0)") Dragon Curve
+      li
+        a(onclick="lsys_form_fill('X, F', 'X', '(X -> F-[[X]+X]+F[+FX]-X), (F -> FF), (+ -> +), (- -> -), ([ -> [), (] -> ])', Math.PI / 7.2, 'F');", href="javascript:void(0)") Grass-like Plant
+      li
+        a(onclick="lsys_form_fill('A, B', 'A', '(A -> B-A-B), (B -> A+B+A), (+ -> +), (- -> -)', Math.PI / 3.0, 'A, B');", href="javascript:void(0)") Sierpinsky Triangle
