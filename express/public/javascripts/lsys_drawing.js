@@ -18,6 +18,7 @@ function lsys_draw(start_x, start_y, context, lsys) {
   for (var i = 0; i < str.length; i++) {
     c = str[i];
     if (lsys.draw_chars.indexOf(c) >= 0) {
+      context.moveTo(pos['x'], pos['y']);
       pos['x'] = pos['x'] + u * vec['x'];
       pos['y'] = pos['y'] + u * vec['y'];
       context.lineTo(pos['x'], pos['y']);
