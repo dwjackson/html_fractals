@@ -6,6 +6,20 @@ element. At the moment, most of the fractals are drawn by describing them
 using L-Systems. There are some pre-defined L-Systems built into the system.
 Other fractals are in their own folders.
 
+Pre-Requisites
+--------------
+
+- An HTML5-capable web browser
+- Node.js and NPM
+- Express.js (Node.js Package)
+- Jade.js (Node.js Package)
+- Stylus.js (Node.js Package)
+
+All the Node.js modules can be installed from within the "express" directory
+with an
+
+	npm install
+
 Pre-Defined L-Sytems
 --------------------
 
