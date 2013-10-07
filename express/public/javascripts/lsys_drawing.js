@@ -1,6 +1,10 @@
 function lsys_draw(start_x, start_y, context, lsys) {
+  console.log('[DEBUG] start_x = ' + start_x);
+  console.log('[DEBUG] start_y = ' + start_y);
   var pos = {'x': start_x, 'y': start_y};
   var vec = {'x': 1.0, 'y': 0.0};
+  console.log('[DEBUG] pos = ' + JSON.stringify(pos));
+  console.log('[DEBUG] vec = ' + JSON.stringify(vec));
   var stack = [];
   var u = 10; // Unit length
 

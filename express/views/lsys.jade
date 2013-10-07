@@ -1,6 +1,26 @@
 extends layout
 
 block content
+  script.
+    function lsys_regen() {
+      var ref_lsys = !{JSON.stringify(lsys)}
+      var form = document.lsys_regen_form
+      var start_x, start_y, iterations
+      var canvas = document.getElementById('lsys_canvas')
+      var context = canvas.getContext('2d')
+      canvas.width = canvas.width
+      start_x = parseInt(form.start_x.value)
+      form.start_x.value = ""
+      start_y = parseInt(form.start_y.value)
+      form.start_y.value = ""
+      iterations = parseInt(form.iterations.value)
+      form.iterations.value = ""
+      var lsys = new LSystem(ref_lsys.alphabet, ref_lsys.axiom, ref_lsys.rules, ref_lsys.draw_chars)
+      lsys.set_angle(ref_lsys.angle)
+      lsys.generate(iterations)
+      lsys_draw(start_x, start_y, context, lsys)
+    }
+
   h1 L-System Drawing
 
   p
@@ -18,12 +38,12 @@ block content
         label(for="iterations") Iterations
         input(name="iterations", type="text")
       .field
-        input.btn(type="submit", value="Regenerate")
+        a.btn(onclick="lsys_regen();", href="javascript:void(0)") Regenerate
 
   canvas(id="lsys_canvas", name="lsys_canvas", height="800", width="800")
 
   script.
     var canvas = document.getElementById('lsys_canvas')
     var context = canvas.getContext('2d')
-    var lsys = !{JSON.stringify(lsys)};
+    var lsys = !{JSON.stringify(lsys)}
     lsys_draw(400, 400, context, lsys)
