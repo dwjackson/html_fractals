@@ -38,7 +38,8 @@ app.get('/users', user.list);
 app.post('/new_lsystem', function(req, res) {
   var rp = new RuleParser(req.body.rules);
   var alphabet = req.body.alphabet.split(', ');
-  var angle = parseFloat(req.body.angle);
+  var angle_deg = parseFloat(req.body.angle);
+  var angle = (Math.PI / 180.0) * angle_deg; 
   var rules = rp.parse();
   var draw_chars = req.body.draw_chars.split(', ');
 
