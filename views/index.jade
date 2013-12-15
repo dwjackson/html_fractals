@@ -13,72 +13,75 @@ block content
 
   h1 L-Systems
 
-  #lsys_form_box
-    form(name="lsys_form", method="post", action="/new_lsystem")
-      .field
-        label(for="alphabet") Alphabet
-        br
-        input(type="text", name="alphabet")
-        br
-      .field
-        label(for="axiom") Axiom
-        br
-        input(type="text", name="axiom")
-        br
-      .field
-        label(for="axiom") Rules 
-        br
-        textarea(name="rules")
-        br
-      .field
-        label(for="angle") Angle (in degrees)
-        br
-        input(type="text", name="angle")
-        br
-      .field
-        label(for="draw_chars") Drawing Characters (letters that correspond to draw)
-        br
-        input(type="text", name="draw_chars")
-        br
-      .field
-        label(for="iterations") Iterations
-        br
-        input(type="text", name="iterations")
-        br
-      .field
-        input.btn(type="submit", value="Create")
+  #system_creator
+    h2 System Creator
+    #lsys_form_box
+      form(name="lsys_form", method="post", action="/new_lsystem")
+        .field
+          label(for="alphabet") Alphabet
+          br
+          input(type="text", name="alphabet")
+          br
+        .field
+          label(for="axiom") Axiom
+          br
+          input(type="text", name="axiom")
+          br
+        .field
+          label(for="axiom") Rules 
+          br
+          textarea(name="rules")
+          br
+        .field
+          label(for="angle") Angle (in degrees)
+          br
+          input(type="text", name="angle")
+          br
+        .field
+          label(for="draw_chars") Drawing Characters (letters that correspond to draw)
+          br
+          input(type="text", name="draw_chars")
+          br
+        .field
+          label(for="iterations") Iterations
+          br
+          input(type="text", name="iterations")
+          br
+        .field
+          input.btn(type="submit", value="Create")
 
-  #control_symbols
-    h2 Control Symbols
-    table
-      tr
-        td
-          strong Control Symbol
-        td
-          strong Meaning
-      tr
-        td +
-        td Turn right
-      tr
-        td -
-        td Turn left
-      tr
-        td [
-        td Save position and angle
-      tr
-        td ]
-        td Save position and angle
+  #control_and_presets
+    #control_symbols
+      h2 Control Symbols
+      table
+        tr
+          td
+            strong Control Symbol
+          td
+            strong Meaning
+        tr
+          td +
+          td Turn right
+        tr
+          td -
+          td Turn left
+        tr
+          td [
+          td Save position and angle
+        tr
+          td ]
+          td Save position and angle
 
-  #common_lsystems
-    h2 Common L-Systems
-    ul
-      li
-        a.btn(onclick="lsys_form_fill('X, Y', 'X', '(X -> X+YF), (Y -> FX-Y), (+ -> +), (- -> -), (F -> F)', 90, 'F');", href="javascript:void(0)") Dragon Curve
-      li
-        a.btn(onclick="lsys_form_fill('X, F', 'X', '(X -> F-[[X]+X]+F[+FX]-X), (F -> FF), (+ -> +), (- -> -), ([ -> [), (] -> ])', 25, 'F');", href="javascript:void(0)") Grass-like Plant
-      li
-        a.btn(onclick="lsys_form_fill('A, B', 'A', '(A -> B-A-B), (B -> A+B+A), (+ -> +), (- -> -)', 60, 'A, B');", href="javascript:void(0)") Sierpinsky Triangle
-      li
-        a.btn(onclick="lsys_form_fill('F', 'F', '(F -> F-F++F-F), (+ -> +), (- -> -)', 60, 'F');", href="javascript:void(0)") Koch Curve
-      li
-        a.btn(onclick="lsys_form_fill('A, B', 'A', '(A -> -BF+AFA+FB-), (B -> +AF-BFB-FA+), (F -> F), (+ -> +), (- -> -)', 90, 'F');", href="javascript:void(0)") Hilbert Curve
+    #common_lsystems
+      h2 Common L-Systems
+      ul
+        li
+          a.btn(onclick="lsys_form_fill('X, Y', 'X', '(X -> X+YF), (Y -> FX-Y), (+ -> +), (- -> -), (F -> F)', 90, 'F');", href="javascript:void(0)") Dragon Curve
+        li
+          a.btn(onclick="lsys_form_fill('X, F', 'X', '(X -> F-[[X]+X]+F[+FX]-X), (F -> FF), (+ -> +), (- -> -), ([ -> [), (] -> ])', 25, 'F');", href="javascript:void(0)") Grass-like Plant
+        li
+          a.btn(onclick="lsys_form_fill('A, B', 'A', '(A -> B-A-B), (B -> A+B+A), (+ -> +), (- -> -)', 60, 'A, B');", href="javascript:void(0)") Sierpinsky Triangle
+        li
+          a.btn(onclick="lsys_form_fill('F', 'F', '(F -> F-F++F-F), (+ -> +), (- -> -)', 60, 'F');", href="javascript:void(0)") Koch Curve
+        li
+          a.btn(onclick="lsys_form_fill('A, B', 'A', '(A -> -BF+AFA+FB-), (B -> +AF-BFB-FA+), (F -> F), (+ -> +), (- -> -)', 90, 'F');", href="javascript:void(0)") Hilbert Curve
