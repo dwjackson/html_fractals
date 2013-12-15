@@ -17,8 +17,7 @@ var M4 = [[-0.15, 0.28], [0.26, 0.24]];
 var N4 = [0, 0.44];
 var P4 = 0.07;
 
-function barnsley(start_x, start_y, context) {
-  var iters = 80000;
+function barnsley(start_x, start_y, iters, context) {
   var pos = {'x': start_x, 'y': start_y};
   var M, N;
   var u = 50;
@@ -43,4 +42,13 @@ function barnsley(start_x, start_y, context) {
     } 
     barnsley_func(M, N, pos);
   }
+}
+
+function capture_barnsley_form() {
+  var canvas = document.getElementById('barnsley_canvas');
+  var context = canvas.getContext('2d');
+  var bform = document.getElementById('barnsley_form');
+  var iters = bform.elements['iterations'].value;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  barnsley(400, 100, parseInt(iters), context);
 }
