@@ -3,12 +3,13 @@ extends layout
 block content
   h1 Barnsley Fern
 
-  form(id="barnsley_form")
-    label(for="iterations")
-    input(type="text", name="iterations", placeholder="80000")
-    input.btn(type="button", value="Re-Draw", onClick="capture_barnsley_form();")
+  div.barnsley
+    form(id="barnsley_form")
+      label(for="iterations")
+      input(type="text", name="iterations", placeholder="80000")
+      input.btn(type="button", value="Re-Draw", onClick="capture_barnsley_form();")
 
-  canvas(id="barnsley_canvas", height="800", width="800")
+    canvas(id="barnsley_canvas", height="800", width="800")
 
   script.
     var canvas = document.getElementById('barnsley_canvas');
