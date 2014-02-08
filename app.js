@@ -43,13 +43,22 @@ app.post('/new_lsystem', function(req, res) {
   var rules = rp.parse();
   var draw_chars = req.body.draw_chars.split(', ');
 
+  var canvas_width = parseInt(req.body.canvas_width);
+  var canvas_height = parseInt(req.body.canvas_height);
+  if (isNaN(canvas_width) || isNaN(canvas_height)) {
+    canvas_width = 400;
+    canvas_height= 400;
+  }
+
   var ls = new LSystem(alphabet, req.body.axiom, rules, draw_chars);
   ls.set_angle(angle);
-  console.log('[DEBUG] ls initially = ' + JSON.stringify(ls));
   ls.generate(req.body.iterations);
   console.log('[DEBUG] ls = ' + JSON.stringify(ls));
 
-  res.render('lsys', {lsys: ls, title: 'L-System Drawing'});
+  res.render('lsys', {lsys: ls,
+    title: 'L-System Drawing',
+    canvas_height: canvas_height,
+    canvas_width: canvas_width});
 });
 
 app.get('/barnsley_fern', function(req, res) {

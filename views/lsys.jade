@@ -37,10 +37,10 @@ block content
       .field
         a.btn(onclick="lsys_regen();", href="javascript:void(0)") Regenerate
 
-  canvas(id="lsys_canvas", name="lsys_canvas", height="800", width="800")
+  canvas(id="lsys_canvas", name="lsys_canvas", height="#{canvas_height}", width="#{canvas_width}")
 
   script.
     var canvas = document.getElementById('lsys_canvas')
     var context = canvas.getContext('2d')
     var lsys = !{JSON.stringify(lsys)}
-    lsys_draw(400, 400, context, lsys)
+    lsys_draw(!{canvas_width / 2}, !{canvas_height / 2}, context, lsys)
