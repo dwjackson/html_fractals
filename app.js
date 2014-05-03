@@ -53,7 +53,6 @@ app.post('/new_lsystem', function(req, res) {
   var ls = new LSystem(alphabet, req.body.axiom, rules, draw_chars);
   ls.set_angle(angle);
   ls.generate(req.body.iterations);
-  console.log('[DEBUG] ls = ' + JSON.stringify(ls));
 
   res.render('lsys', {lsys: ls,
     title: 'L-System Drawing',
