@@ -64,6 +64,10 @@ app.get('/barnsley_fern', function(req, res) {
   res.render('barnsley_fern');
 });
 
+app.get('/terrain', function(req, res) {
+  res.render('terrain');
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

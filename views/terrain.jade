@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Terrain
+
+  canvas(id="terrain_canvas", height="600", width="800")
+
+  script.
+    var canvas = document.getElementById('terrain_canvas')
+    var context = canvas.getContext('2d')
+    var width = canvas.width
+    var height = canvas.height
+    var detail = 9
+    var roughness = 0.7
+    var terrain = new Terrain(detail)
+    terrain.generate(roughness)
+    terrain.draw(context, width, height)
